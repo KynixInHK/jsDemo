@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <!-- 匯入jquery -->
+    <script src="./jquery-3.6.0.js"></script>
+</head>
+<body>
+    <div class="container">
+        <button id="1">第一章</button>
+        <button id="2">第二章</button>
+        <button id="3">第三章</button>
+        <button id="4">第四章</button>
+    </div> 
+    <script>
+        // 設定數列
+        const btns = ['1','2','3','4']
+        // 回環綁定事件
+        for(let i = 0;i < btns.length;i ++) {
+            // jquery選定元素後綁定click事件
+            $('#' + btns[i]).click(() => {
+                // 獲取到當前點擊元素的id
+                var id = $('#' + btns[i]).attr('id')
+                // 重新定向網路，並將id作為parameter匯入下一個網頁
+                window.location.assign('./content.html?id=' + id)
+            })
+        }
+    </script>
+</body>
+</html>

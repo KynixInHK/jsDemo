@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./jquery-3.6.0.js"></script>
+    <title>Content</title>
+</head>
+<body>
+    <div class="container">
+        <div class="content"></div>
+    </div>
+    <script>
+        // 解析parameter
+        let para = location.search
+        // 獲得parameter裡面的key值和value值
+        let para_key_value = para.split('?')[1].split('=')
+        // parameter最後結果集
+        let para_result = {
+            'key': para_key_value[0],
+            'value': para_key_value[1]
+        }
+        // 要append到div中的內容，這部分可以從database獲得data
+        let content = ''
+
+        switch(para_result.value) {
+            case '1': content = 'This is the first article.'; break
+            case '2': content = 'This is the second article.'; break
+            case '3': content = 'This is the third article.'; break
+            case '4': content = 'This is the fourth article.'; break
+        }
+        // 獲取content div的元素
+        let content_div = $('.content')
+        // 將內容append到元素內容
+        content_div.text(content)
+    </script>
+</body>
+</html>
